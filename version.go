@@ -3,11 +3,14 @@ package main
 import "time"
 
 const (
-	VERSION                = "48c93c8"
-	VERSION_CONTROL_SYSTEM = "git"
+	//Version indicate version from version branch"
+	Version              = "1e34bcc"
+	//VersionControlSystem indicate version mananger vender"
+	VersionControlSystem = "git"
 )
-
 var (
-	VERSION_TIME       = time.Date(2016, 2, 16, 22, 31, 23, 0, time.UTC)
-	VERSION_BUILD_TIME = time.Date(2016, 2, 16, 22, 39, 28, 0, time.UTC)
+	//VersionTime indicate commit time in version branch"
+	VersionTime      = time.Date(2016, 2, 16, 22, 40, 0, 0, time.UTC)
+	//VersionBuildTime  indicate build time"
+	VersionBuildTime = time.Date(2016, 3, 28, 3, 25, 48, 0, time.UTC)
 )

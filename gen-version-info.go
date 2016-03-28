@@ -16,6 +16,7 @@ import (
 	"github.com/ungerik/go-dry"
 )
 
+// ISO8601 format time
 const ISO8601 = "2006-01-02 15:04:05 -0700"
 
 var (
@@ -59,11 +60,15 @@ func main() {
 
 		fprintVersion := func(writer io.Writer) {
 			fmt.Fprintf(writer, "package main\n\nimport \"time\"\n\nconst (\n")
-			fmt.Fprintf(writer, "\tVERSION                = \"%s\"\n", version)
-			fmt.Fprintf(writer, "\tVERSION_CONTROL_SYSTEM = \"git\"\n")
+			fmt.Fprintf(writer, "\t//Version indicate version from version branch\"\n")
+			fmt.Fprintf(writer, "\tVersion              = \"%s\"\n", version)
+			fmt.Fprintf(writer, "\t//VersionControlSystem indicate version mananger vender\"\n")
+			fmt.Fprintf(writer, "\tVersionControlSystem = \"git\"\n")
 			fmt.Fprintf(writer, ")\nvar (\n")
-			fmt.Fprintf(writer, "\tVERSION_TIME        = time.Date(%d, %d, %d, %d, %d, %d, 0, time.UTC)\n", vt.Year(), vt.Month(), vt.Day(), vt.Hour(), vt.Minute(), vt.Second())
-			fmt.Fprintf(writer, "\tVERSION_BUILD_TIME  = time.Date(%d, %d, %d, %d, %d, %d, 0, time.UTC)\n", bt.Year(), bt.Month(), bt.Day(), bt.Hour(), bt.Minute(), bt.Second())
+			fmt.Fprintf(writer, "\t//VersionTime indicate commit time in version branch\"\n")
+			fmt.Fprintf(writer, "\tVersionTime      = time.Date(%d, %d, %d, %d, %d, %d, 0, time.UTC)\n", vt.Year(), vt.Month(), vt.Day(), vt.Hour(), vt.Minute(), vt.Second())
+			fmt.Fprintf(writer, "\t//VersionBuildTime  indicate build time\"\n")
+			fmt.Fprintf(writer, "\tVersionBuildTime = time.Date(%d, %d, %d, %d, %d, %d, 0, time.UTC)\n", bt.Year(), bt.Month(), bt.Day(), bt.Hour(), bt.Minute(), bt.Second())
 			fmt.Fprintf(writer, ")\n")
 		}
 
